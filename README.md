@@ -2,6 +2,9 @@
 ## A Simple To - Do Website!
 #### This web page is hosted [here!](https://tusharjustdoit.netlify.app/)
 
+### Features:
+* User-friendly
+* Local Storage
 
 # References
 * For Fonts: [Google Fonts](https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap)
