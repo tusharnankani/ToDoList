@@ -4,7 +4,11 @@
 
 ### Features:
 * User-friendly
-* Local Storage
+* Local Storage Supported
+### Features to be added:
+* Themes: User can choose among different themes.
+* ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
+* Login Features (use API's): So the website can be opened on any device, logged in, and the To-Dos can be viewed.
 
 # References
 * For Fonts: [Google Fonts](https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap)
