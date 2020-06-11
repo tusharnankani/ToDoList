@@ -65,7 +65,7 @@ form {
 }
 
 form input {
-    padding: 8px;
+    padding: 10px;
     font-size: 17px;
     color: rgb(247, 226, 223);
     border: none;
@@ -97,13 +97,13 @@ form button {
     border-bottom-right-radius: 15px;
 }
 
-form button:hover {
+/* form button:hover {
     color: rgb(247, 226, 223);
     background-color:  #313131;
     cursor: pointer;
     transition: 0.2s;
-    /* transition-delay: .1ms; */
-} 
+    /* transition-delay: .1ms;
+}  */
 
 #myUnOrdList {
     display: flex;
@@ -126,8 +126,9 @@ form button:hover {
     font-size: 19px;
     display: flex;
     justify-content: space-between;
-    align-items: center;   
-
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 30px;
     transition: all 0.5s ease;
 }
 
@@ -145,25 +146,39 @@ form button:hover {
     cursor: ;
 } */
 
-.check-btn, .delete-btn {
-    font-size: 20px;
-    cursor: pointer;
-    background: rgb(245, 214, 209);
+button{
     border: none;
-    padding: 0.40rem;
+    outline: none;
+    background-color: rgb(247, 226, 223);
+    transition: 200ms ease all;
+}
+
+button:hover{
+    background-color: white;
+    box-shadow: #fff8 0 0 10px;
+    cursor: pointer;
+}
+
+.check-btn, .delete-btn {
+    font-size: 19px;
+    cursor: pointer;
+    /* background: rgb(245, 214, 209); */
+    width: 2em;
+    height: 2em;
+    border-radius: 80%;
+    margin: 0 5px;
     /* margin-left: 5px; */
     /* margin-right: 5px; */
     /* border-radius: 40px; */
 }
 
-.check-btn:hover, .delete-btn:hover{
+/* .check-btn:hover, .delete-btn:hover{
     color: rgb(247, 226, 223);
     background-color:  #313131;
     border: none;
     padding: 0.40rem;
     transition: 0.25s;
-
-}
+} */
 
 .todo-item {
     padding: 0rem 0.5rem;
