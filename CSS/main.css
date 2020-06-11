@@ -5,9 +5,9 @@
 }
 
 body {
-    background-image: linear-gradient(100deg, #5e5b56, #062e3f);
+    background-image: linear-gradient(100deg, #575656, #062e3f);
     /* #363532, rgb(88, 111, 112) */
-    color: #FFE4E1;
+    color: #ffdfdb;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     margin-top: 70px;
@@ -29,37 +29,31 @@ body {
 
 /* Animation */
 #title {
-    white-space: nowrap;
-    overflow: hidden; 
-    animation: animated-text 1.7s steps(30,end) 1s 1 normal both
-}
+    border-right: solid 3px rgba(0, 0, 0, 0.75);
+    white-space: pre;
+    overflow: hidden;     
+    letter-spacing: 0.20rem;
+  }
   
-#border {
-     animation: animated-cursor 800ms steps(30,end) infinite;
- }
+  /* Animation */
+#title {
+    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
+        animated-cursor 750ms steps(11,end) infinite;
+  }
   
   /* text animation */
-@keyframes animated-text{
-    from{width: 0;}
+  
+  @keyframes animated-text{
+    from{width: 0%;}
     to{width: 480px;}
-}
-
-  /* cursor animations */  
-@keyframes animated-cursor{
-    from{border-bottom-color: transparent;}
-    to{border-bottom-color: transparent;}
-}
-
-/* @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgb(0, 0, 0); }
-}
- */
+  }
+  
+  /* cursor animations */
+  
+  @keyframes animated-cursor{
+    from{border-right-color: rgba(0, 0, 0, 0.75);}
+    to{border-right-color: transparent;}
+  }
 
 
 form {
@@ -68,20 +62,19 @@ form {
     flex-wrap: wrap;
     padding: 0.8rem;
     font-size: 1.7rem;
-    border: none;
 }
 
 form input {
     padding: 8px;
-    text-transform: capitalize;
     font-size: 17px;
     color: rgb(247, 226, 223);
     border: none;
+    outline: none;
     background-color: #181a1a;
     /* border-radius: 15; */
-    border-top-left-radius: 17;
-    border-bottom-left-radius: 17;
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;
+    margin: 0px auto; /* Gives that scrolling effect as the typing happens */
 }
 
 form input:hover {
@@ -100,8 +93,8 @@ form button {
     border: none;
     background-color: rgb(247, 226, 223);
     /* border-radius: 100; */
-    border-top-right-radius: 15;
-    border-bottom-right-radius: 15;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 form button:hover {
@@ -144,7 +137,7 @@ form button:hover {
     /* flex-wrap: wrap; */
     font-size: 20px;
     flex: 1; /* To push the trash and the check button to the right */
-    /* border-radius: 30px; */
+    border-radius: 30px;
 }
 
 /* .todo li:hover {
