@@ -5,6 +5,7 @@
 ### Features:
 * User-friendly
 * Local Storage Supported
+* Displays current Date and Time
 ### Features to be added:
 * Themes: User can choose among different themes.
 * ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
