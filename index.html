@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font: Quick Sand -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet"> 
+
+    <!-- font awesome (https://fontawesome.com) for basic icons; source: https://cdnjs.com/libraries/font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="CSS/main.css">
+
+    <title>JUST DO IT</title>
+
+</head>
+
+<body>
+    <div id = "header">
+        <h1 id="title">Just do it.<div id="border"></div></h1>
+    </div>
+
+    <div id="form">
+        <form>
+            <div id = "textbox">
+                <input class="todo-input" type="text" size="55" placeholder="Add a task.">  
+            </div>
+            <div id="subtn">
+                <button class="todo-btn" type="submit" onclick="addToDo()">I Got This!
+                </button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <p><span id="datetime"></span></p>
+        <script src="JS/time.js"></script> 
+    </div>
+    <div id="myUnOrdList">
+        <ul class="todo-list">
+             <!-- (Basic Format)
+            <div class="todo">
+                // items added to this list 
+                <li></li>
+                <button>delete</button>
+                <button>check</button>
+            </div> -->
+        </ul>
+    </div>
+    
+    <script src="JS/main.js"> </script>
+
+
+</body>
+</html>

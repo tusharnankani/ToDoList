@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(100deg, #5e5b56, #062e3f);
+    /* #363532, rgb(88, 111, 112) */
+    color: #FFE4E1;
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100vh;
+    margin-top: 70px;
+}
+
+#header, #form, #datetime {
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#header {
+    min-height: 25vh;
+    font-size: 3rem;
+}
+
+
+/* Animation */
+#title {
+    white-space: nowrap;
+    overflow: hidden; 
+    animation: animated-text 1.7s steps(30,end) 1s 1 normal both
+}
+  
+#border {
+     animation: animated-cursor 800ms steps(30,end) infinite;
+ }
+  
+  /* text animation */
+@keyframes animated-text{
+    from{width: 0;}
+    to{width: 480px;}
+}
+
+  /* cursor animations */  
+@keyframes animated-cursor{
+    from{border-bottom-color: transparent;}
+    to{border-bottom-color: transparent;}
+}
+
+/* @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(0, 0, 0); }
+}
+ */
+
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.8rem;
+    font-size: 1.7rem;
+    border: none;
+}
+
+form input {
+    padding: 8px;
+    text-transform: capitalize;
+    font-size: 17px;
+    color: rgb(247, 226, 223);
+    border: none;
+    background-color: #181a1a;
+    /* border-radius: 15; */
+    border-top-left-radius: 17;
+    border-bottom-left-radius: 17;
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+}
+
+form input:hover {
+    color: rgb(247, 226, 223);
+    background-color: rgb(0, 0, 0);
+    cursor: text;
+    transition: 0.2s;
+    /* transition-delay: .1ms; */
+}
+
+form button {
+    padding: 8px;
+    font-size: 17px;
+    /* font-weight: 500; */
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: rgb(247, 226, 223);
+    /* border-radius: 100; */
+    border-top-right-radius: 15;
+    border-bottom-right-radius: 15;
+}
+
+form button:hover {
+    color: rgb(247, 226, 223);
+    background-color:  #313131;
+    cursor: pointer;
+    transition: 0.2s;
+    /* transition-delay: .1ms; */
+} 
+
+#myUnOrdList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 25%;
+
+    /* To remove the bullets of unordered list */
+    list-style: none;
+}
+
+.todo {
+    margin: 0.4rem;
+    background-color: rgb(26, 27, 27);
+    /* background: rgb(247, 226, 223); */
+    /* color: black; */
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+
+    transition: all 0.5s ease;
+}
+
+.todo li{
+    padding: 7px;
+    /* word-wrap: break-word; */
+    /* flex-wrap: wrap; */
+    font-size: 20px;
+    flex: 1; /* To push the trash and the check button to the right */
+    /* border-radius: 30px; */
+}
+
+/* .todo li:hover {
+    opacity: 0.9;
+    cursor: ;
+} */
+
+.check-btn, .delete-btn {
+    font-size: 20px;
+    cursor: pointer;
+    background: rgb(245, 214, 209);
+    border: none;
+    padding: 0.40rem;
+    /* margin-left: 5px; */
+    /* margin-right: 5px; */
+    /* border-radius: 40px; */
+}
+
+.check-btn:hover, .delete-btn:hover{
+    color: rgb(247, 226, 223);
+    background-color:  #313131;
+    border: none;
+    padding: 0.40rem;
+    transition: 0.25s;
+
+}
+
+.todo-item {
+    padding: 0rem 0.5rem;
+    /* border-radius: 40px;  */
+}
+
+.fa-trash, .fa-check { 
+    pointer-events: none;
+}
+
+
+.completed {
+    transition: 0.2s;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall {
+    /* transition */
+    transform: translateY(45rem) rotateZ(45deg);
+    opacity: 0;
+}
