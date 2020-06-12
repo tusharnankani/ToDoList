@@ -21,6 +21,15 @@
 * For more CSS effects: [text-effects](https://speckyboy.com/underline-text-effects-css/)
 * For Type Writing effects: [Type-effects](https://usefulangle.com/post/85/css-typewriter-animation)
 
+# *Contributions* 
+- All contributors are most welcome! This is definitely open source!
+- Do view the [`CONTRIBUTING.md`](https://github.com/) file for further instructions, requirements/dependencies & local project setup instructions!
+- All the contributors to this repository can be found in the [`CONTRIBUTORS.md`](https://github.com/) file!
+
+
+# *Author*
+* Tushar Nankani (tusharnankani, tusharnankani3@gmail.com)
+   - [LinkedIn](https://www.linkedin.com/in/tusharnankani)
 
 # WEBSITE DEMO
 ![Home Page](https://user-images.githubusercontent.com/61280281/84436477-261d3c00-ac51-11ea-917f-56b25f2b16c9.png)
