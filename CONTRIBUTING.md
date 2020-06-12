@@ -1,6 +1,6 @@
-# Welcome, contributors!
+# Greetings, contributors!
 
-- **Have a look at the [issues](https://github.com/HarshKapadia2/lbl-tribute-page/issues) section for issues that need to be solved!**
+- Have a look at the [issues](https://github.com/tusharnankani/ToDoList/issues) section for issues that need to be solved!
 - If you make a contribution, please do not forget to add your personal details to the [CONTRIBUTORS.md](CONTRIBUTORS.md) file!
 
 ## *Technologies used*
