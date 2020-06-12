@@ -2,17 +2,17 @@
 ## A Simple To - Do Website!
 #### This web page is hosted [here!](https://tusharjustdoit.netlify.app/)
 
-### Features:
+### *Features*:
 * User-friendly
 * Local Storage Supported
 * Displays current Date and Time
-### Features to be added:
+### *Features to be added*:
 * Themes: Users can choose among different themes.
 * SubTasks: Adding subtasks to the enlisted tasks, could be an option.
 * ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
 * Login Features (use APIs) & Database: So the website can be opened on any device, users can log in, and the To-Dos can be viewed anywhere, anytime.
 * Reminder/Alerts: Sending automated mails once logged in, and due date/time set. 
-# References
+# *References*
 * For Fonts: [Google Fonts](https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap)
 * For Basic Icons (like Trash and Check buttons): [font-awesome](https://fontawesome.com)
 * For Color Coordination: [w3schools](https://www.w3schools.com/colors/colors_mixer.asp?colorbottom=000000&colortop=FFFFFF)
