@@ -9,3 +9,4 @@
 
 ## Author
 * Tushar Nankani (tusharnankani, tusharnankani3@gmail.com)
+   - [LinkedIn](https://www.linkedin.com/in/tusharnankani)
