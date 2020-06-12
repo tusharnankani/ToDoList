@@ -8,8 +8,10 @@
 * Displays current Date and Time
 ### Features to be added:
 * Themes: Users can choose among different themes.
+* SubTasks: Adding subtasks to the enlisted tasks, could be an option.
 * ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
-* Login Features (use APIs): So the website can be opened on any device, users can log in, and the To-Dos can be viewed anywhere, anytime.
+* Login Features (use APIs) & Database: So the website can be opened on any device, users can log in, and the To-Dos can be viewed anywhere, anytime.
+* Reminder/Alerts: Sending automated mails once logged in, and due date/time set. 
 # References
 * For Fonts: [Google Fonts](https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap)
 * For Basic Icons (like Trash and Check buttons): [font-awesome](https://fontawesome.com)
