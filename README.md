@@ -25,7 +25,7 @@
 
 # *Contributions* 
 - All contributors are most welcome! This is definitely open source!
-- Do view the [`CONTRIBUTING.md`](https://github.com/) file for further instructions, requirements/dependencies & local project setup instructions!
+- Do view the [`CONTRIBUTING.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTING.md) file for further instructions, requirements/dependencies & local project setup instructions!
 - All the contributors to this repository can be found in the [`CONTRIBUTORS.md`](https://github.com/tusharnankani/ToDoList/blob/add-license-1/CONTRIBUTORS.md) file!
 
 
