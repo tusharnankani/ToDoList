@@ -86,7 +86,7 @@ form input:hover {
 }
 
 form button {
-    padding: 8px;
+    padding: 10px;
     font-size: 17px;
     /* font-weight: 500; */
     color: rgb(0, 0, 0);
@@ -139,6 +139,9 @@ form button {
     font-size: 20px;
     flex: 1; /* To push the trash and the check button to the right */
     border-radius: 30px;
+
+    /* wraps the links */
+    overflow-wrap: anywhere;
 }
 
 /* .todo li:hover {
