@@ -1,4 +1,3 @@
-![visitors](https://visitor-badge.glitch.me/badge?page_id=https://github.com/tusharnankani/ToDoList)
 
 # To-Do-List
 ## A Simple To - Do Website!
