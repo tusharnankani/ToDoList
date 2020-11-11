@@ -5,18 +5,33 @@
 }
 
 body {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
     /* #363532, rgb(88, 111, 112) */
     color: #ffdfdb;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
-    margin-top: 70px;
+    padding-top: 70px;
+}
+
+/* Class names to use light or dark themes */
+.standard {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light {
+    background-image: linear-gradient(100deg, #F2E5CB, #72ADEB);
+    color: #362D1D;
+}
+
+.darker {
+    background-image: linear-gradient(100deg, #020040, #000);
+    color: #7CDEF5;
 }
 
 #header, #form, #datetime {
     min-height: 10vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-content: center;
     align-items: center;
 }
@@ -26,6 +41,47 @@ body {
     font-size: 3rem;
 }
 
+/* Theme buttons */
+.flexrow-container {
+    align-items: center;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 3%;
+}
+
+.flexrow-container > p {
+    font-size: 1.1rem;
+}
+
+.theme-selector {
+    border: 2px solid #F2E5CB;
+    border-radius: 100%;
+    height: 35px;
+    margin: 0 10px;
+    transition: tranform 0.15s ease-in-out;
+    width: 35px;
+}
+
+.theme-selector:hover {
+    cursor: pointer;
+}
+
+.theme-selector:active {
+    transform: scale(0.95);
+}
+
+.standard-theme {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light-theme {
+    background-image: linear-gradient(100deg, #F2E5CB, #72ADEB);
+}
+
+.darker-theme {
+    background-image: linear-gradient(100deg, #000011, #000);
+}
 
 /* Animation */
 #title {
@@ -75,6 +131,14 @@ form input {
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
     margin: 0px auto; /* Gives that scrolling effect as the typing happens */
+}
+
+form input.light-input {
+    background-color: #062e3f;
+}
+
+form input.darker-input {
+    background-color: #2B0813;
 }
 
 form input:hover {
@@ -129,7 +193,14 @@ form button {
     align-items: center;
     padding: 0.25em 0.5em;
     border-radius: 30px;
-    transition: all 0.5s ease;
+}
+
+.todo.light-todo {
+    background-color: #062e3f;
+}
+
+.todo.darker-todo {
+    background-color: #2B0813;
 }
 
 .todo li{
@@ -151,18 +222,16 @@ form button {
 
 button{
     border: none;
-    outline: none;
-    background-color: rgb(247, 226, 223);
-    transition: 200ms ease all;
+    outline: none; 
+    transition: all 200ms ease;
 }
 
 button:hover{
-    background-color: white;
-    box-shadow: #fff8 0 0 10px;
     cursor: pointer;
 }
 
 .check-btn, .delete-btn {
+    background-color: rgb(247, 226, 223);
     font-size: 19px;
     cursor: pointer;
     /* background: rgb(245, 214, 209); */
@@ -173,6 +242,11 @@ button:hover{
     /* margin-left: 5px; */
     /* margin-right: 5px; */
     /* border-radius: 40px; */
+}
+
+.todo-btn:hover,.check-btn:hover, .delete-btn:hover {
+    background-color: white;
+    box-shadow: #fff8 0 0 10px;
 }
 
 /* .check-btn:hover, .delete-btn:hover{
