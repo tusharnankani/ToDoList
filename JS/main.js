@@ -169,46 +169,17 @@ function removeLocalTodos(todo){
 // Change theme function:
 function changeTheme(color) {
     if (color === 'standard') {
-        const classToRemove = ['light', 'light-input', 'light-todo', 'darker', 'darker-input', 'darker-todo'];
-        // Give body the standard theme and remove other themes:
-        document.body.classList.add('standard');
-        document.body.classList.remove(...classToRemove);
-        // Give input standard theme and remove other themes:
-        document.querySelector('input').classList.add('standard-input');
-        document.querySelector('input').classList.remove(...classToRemove);
-        // Give list items standard theme and remove other themes:
-        document.querySelectorAll('.todo').forEach(todo => {
-            todo.classList.add('standard-todo');
-            todo.classList.remove(...classToRemove);
-        });
-        
+        document.body.className = 'standard';
+        document.querySelector('input').className = 'standard-input';
+        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo standard-todo');
     } else if (color === 'light') {
-        const classToRemove = ['standard', 'standard-input', 'standard-todo', 'darker', 'darker-input', 'darker-todo'];
-
-        document.body.classList.add('light');
-        document.body.classList.remove(...classToRemove);
-
-        document.querySelector('input').classList.add('light-input');
-        document.querySelector('input').classList.remove(...classToRemove);
-
-        document.querySelectorAll('.todo').forEach(todo => {
-            todo.classList.add('light-todo');
-            todo.classList.remove(...classToRemove);
-        });
-        
+        document.body.className = 'light';
+        document.querySelector('input').className = 'light-input';
+        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo light-todo');
         
     } else if (color === 'darker') {
-        const classToRemove = ['standard', 'standard-input', 'standard-todo', 'light', 'light-input', 'light-todo'];
-
-        document.body.classList.add('darker');
-        document.body.classList.remove(...classToRemove);
-
-        document.querySelector('input').classList.add('darker-input');
-        document.querySelector('input').classList.remove(...classToRemove);
-
-        document.querySelectorAll('.todo').forEach(todo => {
-            todo.classList.add('darker-todo');
-            todo.classList.remove(...classToRemove);
-        });
+        document.body.className = 'darker';
+        document.querySelector('input').className = 'darker-input';
+        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo darker-todo');
     }
 }
