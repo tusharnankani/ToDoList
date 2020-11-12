@@ -87,7 +87,7 @@ function deletecheck(event){
     // check
     if(item.classList[0] === 'check-btn')
     {
-        item.parentElement.classList.add("completed");
+        item.parentElement.classList.toggle("completed");
     }
 
 
