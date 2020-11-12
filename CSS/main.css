@@ -154,9 +154,19 @@ form input.light-input {
     color: #1a150e;
 }
 
+form input.light-input::placeholder {
+    color: #1a150e;
+    opacity: 0.7;
+}
+
 form input.darker-input {
     background-color: #AE64F7;
     color: white;
+}
+
+form input.darker-input::placeholder {
+    color: white;
+    opacity: 0.7;
 }
 
 form input:hover {
