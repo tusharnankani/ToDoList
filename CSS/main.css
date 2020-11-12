@@ -8,7 +8,7 @@ body {
     /* #363532, rgb(88, 111, 112) */
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
-    padding-top: 70px;
+    padding-top: 3%;
 }
 
 /* Body light or darker themes */
@@ -18,12 +18,12 @@ body {
 }
 
 .light {
-    background-image: linear-gradient(100deg, #EBF1F1, #B6BBBF);
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
     color: #1a150e;
 }
 
 .darker {
-    background-image: linear-gradient(100deg, #211E39, #000);
+    background-image: linear-gradient(100deg, #001214, #001f29);
     color: white;
 }
 
@@ -50,13 +50,8 @@ body {
     margin-right: 3%;
 }
 
-.flexrow-container > p {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
 .theme-selector {
-    border: 2px solid #F2E5CB;
+    border: 1px solid #d1dae3;
     border-radius: 100%;
     height: 35px;
     margin: 0 8px;
@@ -78,11 +73,11 @@ body {
 }
 
 .light-theme {
-    background-image: linear-gradient(100deg, #F2E5CB, #72ADEB);
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
 }
 
 .darker-theme {
-    background-image: linear-gradient(100deg, #000011, #000);
+    background-image: linear-gradient(100deg, #001214, #001f29);
 }
 
 /* Animation */
@@ -91,6 +86,8 @@ body {
     white-space: pre;
     overflow: hidden;     
     letter-spacing: 0.20rem;
+    margin-top: 150px;
+    margin-bottom: 20px;
   }
   
   /* Animation */
@@ -118,7 +115,7 @@ body {
   }
 
   @keyframes darker-animated-cursor {
-    from{border-right-color: #68329e;}
+    from{border-right-color: #01394c;}
     to{border-right-color: transparent;}
   }
 
@@ -160,7 +157,7 @@ form input.light-input::placeholder {
 }
 
 form input.darker-input {
-    background-color: #AE64F7;
+    background-color: #01394c;
     color: white;
 }
 
@@ -216,12 +213,12 @@ button.light-button:hover {
 }
 
 button.darker-button {
-    background-color: #653A8E;
+    background-color: #002837;
     color: white;
 }
 
 button.darker-button:hover {
-    background-color: #4B2A69;
+    background-color: #001f29;
 }
 
 form button {
@@ -277,7 +274,7 @@ form button {
 }
 
 .darker-todo {
-    background-color: #AE64F7;
+    background-color: #01394c;
 }
 
 .todo li{
