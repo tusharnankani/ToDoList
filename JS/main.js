@@ -17,7 +17,8 @@ standardTheme.addEventListener('click', () => changeTheme('standard'));
 lightTheme.addEventListener('click', () => changeTheme('light'));
 darkerTheme.addEventListener('click', () => changeTheme('darker'));
 
-
+// Global variable to record theme status, initialized at default value:
+let chosenTheme = 'standard';
 
 // Functions;
 function addToDo(event) {
@@ -26,7 +27,7 @@ function addToDo(event) {
 
     // toDo DIV;
     const toDoDiv = document.createElement("div");
-    toDoDiv.classList.add("todo");
+    toDoDiv.classList.add('todo', `${chosenTheme}-todo`);
 
     // Create LI
     const newToDo = document.createElement('li');
@@ -45,12 +46,12 @@ function addToDo(event) {
         // check btn;
         const checked = document.createElement('button');
         checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add("check-btn");
+        checked.classList.add('check-btn', `${chosenTheme}-button`);
         toDoDiv.appendChild(checked);
         // delete btn;
         const deleted = document.createElement('button');
         deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add("delete-btn");
+        deleted.classList.add('delete-btn', `${chosenTheme}-button`);
         toDoDiv.appendChild(deleted);
 
         // Append to list;
@@ -123,7 +124,7 @@ function getTodos() {
     todos.forEach(function(todo) {
         // toDo DIV;
         const toDoDiv = document.createElement("div");
-        toDoDiv.classList.add("todo");
+        toDoDiv.classList.add("todo", `${chosenTheme}-todo`);
 
         // Create LI
         const newToDo = document.createElement('li');
@@ -168,18 +169,30 @@ function removeLocalTodos(todo){
 
 // Change theme function:
 function changeTheme(color) {
-    if (color === 'standard') {
-        document.body.className = 'standard';
-        document.querySelector('input').className = 'standard-input';
-        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo standard-todo');
-    } else if (color === 'light') {
-        document.body.className = 'light';
-        document.querySelector('input').className = 'light-input';
-        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo light-todo');
-        
-    } else if (color === 'darker') {
-        document.body.className = 'darker';
-        document.querySelector('input').className = 'darker-input';
-        document.querySelectorAll('.todo').forEach(todo => todo.className = 'todo darker-todo');
-    }
+    chosenTheme = color;
+    document.body.className = color;
+    // Change blinking cursor for darker theme:
+    color === 'darker' ? 
+        document.getElementById('title').classList.add('darker-title')
+        : document.getElementById('title').classList.remove('darker-title');
+
+    document.querySelector('input').className = `${color}-input`;
+    // Change todo color without changing their status (completed or not):
+    document.querySelectorAll('.todo').forEach(todo => {
+        Array.from(todo.classList).some(item => item === 'completed') ? 
+            todo.className = `todo ${color}-todo completed`
+            : todo.className = `todo ${color}-todo`;
+    });
+    // Change buttons color according to their type (todo, check or delete):
+    document.querySelectorAll('button').forEach(button => {
+        Array.from(button.classList).some(item => {
+            if (item === 'check-btn') {
+              button.className = `check-btn ${color}-button`;  
+            } else if (item === 'delete-btn') {
+                button.className = `delete-btn ${color}-button`; 
+            } else if (item === 'todo-btn') {
+                button.className = `todo-btn ${color}-button`;
+            }
+        });
+    });
 }

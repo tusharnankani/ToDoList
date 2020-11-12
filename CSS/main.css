@@ -6,25 +6,25 @@
 
 body {
     /* #363532, rgb(88, 111, 112) */
-    color: #ffdfdb;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 70px;
 }
 
-/* Class names to use light or dark themes */
+/* Body light or darker themes */
 .standard {
     background-image: linear-gradient(100deg, #575656, #062e3f);
+    color: #ffdfdb;
 }
 
 .light {
-    background-image: linear-gradient(100deg, #F2E5CB, #72ADEB);
-    color: #362D1D;
+    background-image: linear-gradient(100deg, #EBF1F1, #B6BBBF);
+    color: #1a150e;
 }
 
 .darker {
-    background-image: linear-gradient(100deg, #020040, #000);
-    color: #7CDEF5;
+    background-image: linear-gradient(100deg, #211E39, #000);
+    color: white;
 }
 
 #header, #form, #datetime {
@@ -41,7 +41,7 @@ body {
     font-size: 3rem;
 }
 
-/* Theme buttons */
+/* Theme buttons div */
 .flexrow-container {
     align-items: center;
     align-self: flex-end;
@@ -51,19 +51,21 @@ body {
 }
 
 .flexrow-container > p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .theme-selector {
     border: 2px solid #F2E5CB;
     border-radius: 100%;
     height: 35px;
-    margin: 0 10px;
-    transition: tranform 0.15s ease-in-out;
+    margin: 0 8px;
+    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
     width: 35px;
 }
 
-.theme-selector:hover {
+.theme-selector:hover { 
+    box-shadow: white 0 0 8px;
     cursor: pointer;
 }
 
@@ -96,6 +98,10 @@ body {
     animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
         animated-cursor 750ms steps(11,end) infinite;
   }
+
+#title.darker-title {
+    animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
+}
   
   /* text animation */
   
@@ -111,6 +117,10 @@ body {
     to{border-right-color: transparent;}
   }
 
+  @keyframes darker-animated-cursor {
+    from{border-right-color: #68329e;}
+    to{border-right-color: transparent;}
+  }
 
 form {
     display: flex;
@@ -123,39 +133,91 @@ form {
 form input {
     padding: 10px;
     font-size: 17px;
-    color: rgb(247, 226, 223);
     border: none;
     outline: none;
-    background-color: #181a1a;
     /* border-radius: 15; */
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
     margin: 0px auto; /* Gives that scrolling effect as the typing happens */
+    transition: background-color 200ms ease-in-out;
 }
 
+/* Input themes */
+form input.standard-input {
+    background-color: #181a1a;
+    color: rgb(247, 226, 223);
+}
+
+
 form input.light-input {
-    background-color: #062e3f;
+    background-color: #AEB1B4;
+    color: #1a150e;
 }
 
 form input.darker-input {
-    background-color: #2B0813;
+    background-color: #AE64F7;
+    color: white;
 }
 
 form input:hover {
-    color: rgb(247, 226, 223);
-    background-color: rgb(0, 0, 0);
     cursor: text;
-    transition: 0.2s;
-    /* transition-delay: .1ms; */
+}
+
+form input.standard-input:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+form input.light-input:hover {
+    background-color: #919699;
+}
+
+form input.darker-input:hover {
+    background-color: #8E53C9;
+}
+
+button {
+    border: none;
+    outline: none; 
+    transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Button themes */
+button.standard-button {
+    background-color: rgb(247, 226, 223);
+    color: rgb(0, 0, 0);
+}
+
+button.standard-button:hover {
+    background-color: white;
+    box-shadow: #fff8 0 0 10px;
+}
+
+button.light-button {
+    background-color: white;
+    color: #1a150e;
+}
+
+button.light-button:hover {
+    background-color: #f0f0f0;
+}
+
+button.darker-button {
+    background-color: #653A8E;
+    color: white;
+}
+
+button.darker-button:hover {
+    background-color: #4B2A69;
 }
 
 form button {
     padding: 10px;
     font-size: 17px;
     /* font-weight: 500; */
-    color: rgb(0, 0, 0);
-    border: none;
-    background-color: rgb(247, 226, 223);
     /* border-radius: 100; */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -184,7 +246,6 @@ form button {
 
 .todo {
     margin: 0.4rem;
-    background-color: rgb(26, 27, 27);
     /* background: rgb(247, 226, 223); */
     /* color: black; */
     font-size: 19px;
@@ -193,14 +254,20 @@ form button {
     align-items: center;
     padding: 0.25em 0.5em;
     border-radius: 30px;
+    transition: background-color 200ms ease-in-out;
 }
 
-.todo.light-todo {
-    background-color: #062e3f;
+/* Items themes */
+.standard-todo {
+    background-color: rgb(26, 27, 27);
 }
 
-.todo.darker-todo {
-    background-color: #2B0813;
+.light-todo {
+    background-color:#AEB1B4;
+}
+
+.darker-todo {
+    background-color: #AE64F7;
 }
 
 .todo li{
@@ -220,18 +287,7 @@ form button {
     cursor: ;
 } */
 
-button{
-    border: none;
-    outline: none; 
-    transition: all 200ms ease;
-}
-
-button:hover{
-    cursor: pointer;
-}
-
 .check-btn, .delete-btn {
-    background-color: rgb(247, 226, 223);
     font-size: 19px;
     cursor: pointer;
     /* background: rgb(245, 214, 209); */
@@ -242,11 +298,6 @@ button:hover{
     /* margin-left: 5px; */
     /* margin-right: 5px; */
     /* border-radius: 40px; */
-}
-
-.todo-btn:hover,.check-btn:hover, .delete-btn:hover {
-    background-color: white;
-    box-shadow: #fff8 0 0 10px;
 }
 
 /* .check-btn:hover, .delete-btn:hover{
