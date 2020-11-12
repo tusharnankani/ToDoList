@@ -17,8 +17,11 @@ standardTheme.addEventListener('click', () => changeTheme('standard'));
 lightTheme.addEventListener('click', () => changeTheme('light'));
 darkerTheme.addEventListener('click', () => changeTheme('darker'));
 
-// Global variable to record theme status, initialized at default value:
-let chosenTheme = 'standard';
+// Check if one theme has been set previously and apply it (or std theme if not found):
+let savedTheme = localStorage.getItem('savedTheme');
+savedTheme === null ?
+    changeTheme('standard')
+    : changeTheme(localStorage.getItem('savedTheme'));
 
 // Functions;
 function addToDo(event) {
@@ -27,7 +30,7 @@ function addToDo(event) {
 
     // toDo DIV;
     const toDoDiv = document.createElement("div");
-    toDoDiv.classList.add('todo', `${chosenTheme}-todo`);
+    toDoDiv.classList.add('todo', `${savedTheme}-todo`);
 
     // Create LI
     const newToDo = document.createElement('li');
@@ -46,12 +49,12 @@ function addToDo(event) {
         // check btn;
         const checked = document.createElement('button');
         checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add('check-btn', `${chosenTheme}-button`);
+        checked.classList.add('check-btn', `${savedTheme}-button`);
         toDoDiv.appendChild(checked);
         // delete btn;
         const deleted = document.createElement('button');
         deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add('delete-btn', `${chosenTheme}-button`);
+        deleted.classList.add('delete-btn', `${savedTheme}-button`);
         toDoDiv.appendChild(deleted);
 
         // Append to list;
@@ -124,7 +127,7 @@ function getTodos() {
     todos.forEach(function(todo) {
         // toDo DIV;
         const toDoDiv = document.createElement("div");
-        toDoDiv.classList.add("todo", `${chosenTheme}-todo`);
+        toDoDiv.classList.add("todo", `${savedTheme}-todo`);
 
         // Create LI
         const newToDo = document.createElement('li');
@@ -136,12 +139,12 @@ function getTodos() {
         // check btn;
         const checked = document.createElement('button');
         checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add("check-btn");
+        checked.classList.add("check-btn", `${savedTheme}-button`);
         toDoDiv.appendChild(checked);
         // delete btn;
         const deleted = document.createElement('button');
         deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add("delete-btn");
+        deleted.classList.add("delete-btn", `${savedTheme}-button`);
         toDoDiv.appendChild(deleted);
 
         // Append to list;
@@ -169,7 +172,9 @@ function removeLocalTodos(todo){
 
 // Change theme function:
 function changeTheme(color) {
-    chosenTheme = color;
+    localStorage.setItem('savedTheme', color);
+    savedTheme = localStorage.getItem('savedTheme');
+
     document.body.className = color;
     // Change blinking cursor for darker theme:
     color === 'darker' ? 
