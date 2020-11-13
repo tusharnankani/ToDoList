@@ -93,7 +93,7 @@ body {
     letter-spacing: 0.20rem;
     margin-top: 50px;
     margin-bottom: 20px;
-    max-width: 500px;
+    max-width: 480px;
   }
   
   /* Animation */
@@ -110,7 +110,7 @@ body {
   
   @keyframes animated-text{
     from{width: 0%;}
-    to{width: 100%;}
+    to{width: 480px;}
   }
   
   /* cursor animations */
@@ -353,11 +353,6 @@ form button {
         align-self: unset;
         margin-right: 0;
     }
-
-    .theme-selector {
-        height: 45px;
-        width: 45px;
-    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -366,9 +361,12 @@ form button {
     }
 
     #title {
+        animation: 
+            animated-text 3s steps(16,end) 0.5s 1 normal both,
+            animated-cursor 750ms steps(16,end) infinite;
         margin-bottom: 10px;
         margin-top: 30px;
-        max-width: 345px;
+        max-width: 330px;
     }
 }
 
@@ -378,7 +376,10 @@ form button {
     }
 
     #title {
-        max-width: 270px;
+        animation: 
+            animated-text 3.5s steps(16,end) 0.5s 1 normal both,
+            animated-cursor 750ms steps(16,end) infinite;
+        max-width: 255px;
     }
 }
 
