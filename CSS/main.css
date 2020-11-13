@@ -6,6 +6,9 @@
 
 body {
     /* #363532, rgb(88, 111, 112) */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 3%;
@@ -28,17 +31,19 @@ body {
 }
 
 #header, #form, #datetime {
+    margin: 0 1rem;
     min-height: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 #header {
-    min-height: 25vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     font-size: 3rem;
+    min-height: 25vh;
+    width: 100%;
 }
 
 /* Theme buttons div */
@@ -88,6 +93,7 @@ body {
     letter-spacing: 0.20rem;
     margin-top: 50px;
     margin-bottom: 20px;
+    max-width: 500px;
   }
   
   /* Animation */
@@ -104,7 +110,7 @@ body {
   
   @keyframes animated-text{
     from{width: 0%;}
-    to{width: 480px;}
+    to{width: 100%;}
   }
   
   /* cursor animations */
@@ -121,10 +127,11 @@ body {
 
 form {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0.8rem;
     font-size: 1.7rem;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 0.8rem;
+    width: 100%;
 }
 
 form input {
@@ -135,8 +142,9 @@ form input {
     /* border-radius: 15; */
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
-    margin: 0px auto; /* Gives that scrolling effect as the typing happens */
+    max-width: 500px;
     transition: background-color 200ms ease-in-out;
+    width: 100%;
 }
 
 /* Input themes */
@@ -228,6 +236,7 @@ form button {
     /* border-radius: 100; */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    min-width: 100px;
 }
 
 /* form button:hover {
@@ -242,6 +251,7 @@ form button {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
 }
 
 .todo-list {
@@ -252,7 +262,7 @@ form button {
 }
 
 .todo {
-    margin: 0.4rem;
+    margin: 1rem;
     /* background: rgb(247, 226, 223); */
     /* color: black; */
     font-size: 19px;
@@ -335,4 +345,59 @@ form button {
     /* transition */
     transform: translateY(45rem) rotateZ(45deg);
     opacity: 0;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1000px) {
+    .flexrow-container {
+        align-self: unset;
+        margin-right: 0;
+    }
+
+    .theme-selector {
+        height: 45px;
+        width: 45px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #header {
+        font-size: 2rem;
+    }
+
+    #title {
+        margin-bottom: 10px;
+        margin-top: 30px;
+        max-width: 345px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #header {
+        font-size: 1.5rem;
+    }
+
+    #title {
+        max-width: 270px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    form {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    form input {
+        border-radius: 17px;
+    }
+
+    form button {
+        border-radius: 15px;
+        margin-top: 15px;
+        width: 50%;
+    }
+    form > button.light-button {
+        box-shadow: 0 0 5px lightgray;
+    }
 }
