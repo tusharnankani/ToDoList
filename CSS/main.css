@@ -18,16 +18,19 @@ body {
 .standard {
     background-image: linear-gradient(100deg, #575656, #062e3f);
     color: #ffdfdb;
+    transition: 0.3s linear;
 }
 
 .light {
     background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
     color: #1a150e;
+    transition: 0.3s linear;
 }
 
 .darker {
     background-image: linear-gradient(100deg, #001214, #001f29);
     color: white;
+    transition: 0.3s linear;
 }
 
 #header, #form, #datetime {
@@ -232,20 +235,10 @@ button.darker-button:hover {
 form button {
     padding: 10px;
     font-size: 17px;
-    /* font-weight: 500; */
-    /* border-radius: 100; */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     min-width: 100px;
 }
-
-/* form button:hover {
-    color: rgb(247, 226, 223);
-    background-color:  #313131;
-    cursor: pointer;
-    transition: 0.2s;
-    /* transition-delay: .1ms;
-}  */
 
 #myUnOrdList {
     display: flex;
@@ -299,35 +292,17 @@ form button {
     overflow-wrap: anywhere;
 }
 
-/* .todo li:hover {
-    opacity: 0.9;
-    cursor: ;
-} */
-
 .check-btn, .delete-btn {
     font-size: 19px;
     cursor: pointer;
-    /* background: rgb(245, 214, 209); */
     width: 2em;
     height: 2em;
     border-radius: 80%;
     margin: 0 5px;
-    /* margin-left: 5px; */
-    /* margin-right: 5px; */
-    /* border-radius: 40px; */
 }
-
-/* .check-btn:hover, .delete-btn:hover{
-    color: rgb(247, 226, 223);
-    background-color:  #313131;
-    border: none;
-    padding: 0.40rem;
-    transition: 0.25s;
-} */
 
 .todo-item {
     padding: 0rem 0.5rem;
-    /* border-radius: 40px;  */
 }
 
 .fa-trash, .fa-check { 
@@ -342,7 +317,7 @@ form button {
 }
 
 .fall {
-    /* transition */
+    transition: 0.5s;
     transform: translateY(45rem) rotateZ(45deg);
     opacity: 0;
 }
