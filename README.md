@@ -4,12 +4,17 @@
 #### This web page is hosted [here!](https://tusharjustdoit.netlify.app/)
 
 ### *Features*:
+
 * User-friendly
 * Local Storage Supported
 * Displays current Date and Time
-
-### *Features to be added*:
+* Responsive, on all devices
 * Themes: Users can choose among different themes.
+
+### *Features to be added*: 
+
+Check [Issues](https://github.com/tusharnankani/ToDoList/issues) for contributing to this repository.
+
 * SubTasks: Adding subtasks to the enlisted tasks, could be an option.
 * Neumorphic Interface: For the to-do's so, it looks more appealing, Can use SASS (.scss file)
 * ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
@@ -28,17 +33,19 @@
 
 # *Contributions* 
 - All contributors are most welcome! This is definitely open source!
-- Do view the [`CONTRIBUTING.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTING.md) file for further instructions, requirements/dependencies & local project setup instructions!
+- View the [`CONTRIBUTING.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTING.md) for further instructions, requirements/dependencies & local project setup instructions!
 - All the contributors to this repository can be found in the [`CONTRIBUTORS.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTORS.md) file!
 
 
 ## *WEBSITE DEMO*
 
-![Screenshot (1)](https://user-images.githubusercontent.com/61280281/84436484-26b5d280-ac51-11ea-8665-c803d5fdedb3.png)
-![Screenshot (2)](https://user-images.githubusercontent.com/61280281/84436487-287f9600-ac51-11ea-8688-3827242679e4.png)
-![Screenshot (3)](https://user-images.githubusercontent.com/61280281/84436472-23bae200-ac51-11ea-875f-50d62f353495.png)
+![Screenshot (771)](https://user-images.githubusercontent.com/61280281/99399713-0844b900-290c-11eb-8d7c-1199319b4a9e.png)
 
+![Screenshot (772)](https://user-images.githubusercontent.com/61280281/99399731-0da20380-290c-11eb-8a59-e0a2e5f9b19f.png)
 
+![Screenshot (773)](https://user-images.githubusercontent.com/61280281/99399728-0d096d00-290c-11eb-9ee5-59cc8358676c.png)
+
+![Screenshot (774)](https://user-images.githubusercontent.com/61280281/99399723-0b3fa980-290c-11eb-8728-03d974be548d.png)
 
 # *Author*
 * Tushar Nankani (tusharnankani, tusharnankani3@gmail.com)
