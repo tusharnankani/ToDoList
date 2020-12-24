@@ -1,4 +1,8 @@
 
+# To-Do-List
+
+## A Simple To - Do Website!
+
 # To Do List
 
 ![ToDoList](https://socialify.git.ci/tusharnankani/ToDoList/image?description=1&forks=1&issues=1&language=1&owner=1&pattern=Brick%20Wall&pulls=1&stargazers=1&theme=Dark)
@@ -15,7 +19,7 @@
 * Responsive, on all devices
 * Themes: Users can choose among different themes.
 
-### *Features to be added*: 
+### *Features to be added*:
 
 Check [Issues](https://github.com/tusharnankani/ToDoList/issues) for contributing to this repository.
 
@@ -23,9 +27,10 @@ Check [Issues](https://github.com/tusharnankani/ToDoList/issues) for contributin
 * Neumorphic Interface: For the to-do's so, it looks more appealing, Can use SASS (.scss file)
 * ScratchPad: Adding an option of a Scratch pad and it can be locally saved.
 * Login Features (use APIs) & Database: So the website can be opened on any device, users can log in, and the To-Dos can be viewed anywhere, anytime.
-* Reminder/Alerts: Sending automated mails once logged in, and due date/time set. 
+* Reminder/Alerts: Sending automated mails once logged in, and due date/time set.
 
 # *References*
+
 * For Fonts: [Google Fonts](https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap)
 * For Basic Icons (like Trash and Check buttons): [font-awesome](https://fontawesome.com)
 * For Favicon: [icons8](https://icons8.com/icons/)
@@ -34,12 +39,13 @@ Check [Issues](https://github.com/tusharnankani/ToDoList/issues) for contributin
 * For help with CSS: [CSS Tricks](https://css-tricks.com/)
 * For more CSS effects: [text-effects](https://speckyboy.com/underline-text-effects-css/)
 * For Type Writing effects: [Type-effects](https://usefulangle.com/post/85/css-typewriter-animation)
+* For Local Storage: [Web Dev Simplified Blog](https://blog.webdevsimplified.com/2020-08/cookies-localStorage-sessionStorage/)
 
-# *Contributions* 
+# *Contributions*
+
 - All contributors are most welcome! This is definitely open source!
 - View the [`CONTRIBUTING.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTING.md) for further instructions, requirements/dependencies & local project setup instructions!
 - All the contributors to this repository can be found in the [`CONTRIBUTORS.md`](https://github.com/tusharnankani/ToDoList/blob/master/CONTRIBUTORS.md) file!
-
 
 ## *WEBSITE DEMO*
 
@@ -52,7 +58,6 @@ Check [Issues](https://github.com/tusharnankani/ToDoList/issues) for contributin
 ![Screenshot (774)](https://user-images.githubusercontent.com/61280281/99399723-0b3fa980-290c-11eb-8728-03d974be548d.png)
 
 # *Author*
+
 * Tushar Nankani (tusharnankani, tusharnankani3@gmail.com)
-   - [LinkedIn](https://www.linkedin.com/in/tusharnankani)
-
-
+  - [LinkedIn](https://www.linkedin.com/in/tusharnankani)
