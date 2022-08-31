@@ -12,6 +12,12 @@ body {
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 3%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* Body light or darker themes */
