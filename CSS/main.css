@@ -323,6 +323,18 @@ form button {
     opacity: 0;
 }
 
+#list-container {
+    max-height: 300px; 
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+}
+
+.todo-list {
+    /* Your existing styles for the to-do list items */
+    list-style: none;
+    padding: 0;
+}
+
 /* Responsive design */
 @media only screen and (max-width: 1000px) {
     .flexrow-container {
