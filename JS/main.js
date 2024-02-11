@@ -25,7 +25,7 @@ savedTheme === null ?
 
 // Functions;
 function addToDo(event) {
-    // Prevents form from submitting / Prevents form from relaoding;
+    // Prevents form from submitting / Prevents form from reloading;
     event.preventDefault();
 
     // toDo DIV;
@@ -35,16 +35,14 @@ function addToDo(event) {
     // Create LI
     const newToDo = document.createElement('li');
     if (toDoInput.value === '') {
-            alert("You must write something!");
-        } 
-    else {
-        // newToDo.innerText = "hey";
+        alert("You must write something!");
+    } else {
         newToDo.innerText = toDoInput.value;
         newToDo.classList.add('todo-item');
         toDoDiv.appendChild(newToDo);
 
-        // Adding to local storage;
-        savelocal(toDoInput.value);
+        // Adding to local storage with checked status as false
+        savelocal({ todo: toDoInput.value, isChecked: false });
 
         // check btn;
         const checked = document.createElement('button');
@@ -60,51 +58,43 @@ function addToDo(event) {
         // Append to list;
         toDoList.appendChild(toDoDiv);
 
-        // CLearing the input;
+        // Clearing the input;
         toDoInput.value = '';
     }
+}
 
-}   
-
-
-function deletecheck(event){
-
-    // console.log(event.target);
+function deletecheck(event) {
     const item = event.target;
 
     // delete
-    if(item.classList[0] === 'delete-btn')
-    {
-        // item.parentElement.remove();
-        // animation
+    if (item.classList.contains('delete-btn')) {
+        // Animation
         item.parentElement.classList.add("fall");
 
-        //removing local todos;
+        // Removing local todos;
         removeLocalTodos(item.parentElement);
 
-        item.parentElement.addEventListener('transitionend', function(){
+        item.parentElement.addEventListener('transitionend', function() {
             item.parentElement.remove();
         })
     }
 
     // check
-    if(item.classList[0] === 'check-btn')
-    {
-        item.parentElement.classList.toggle("completed");
+    if (item.classList.contains('check-btn')) {
+        const todoDiv = item.parentElement;
+        todoDiv.classList.toggle("completed");
+        const todos = JSON.parse(localStorage.getItem('todos'));
+        const todoIndex = todos.findIndex(todo => todo.todo === todoDiv.firstChild.innerText);
+        todos[todoIndex].isChecked = !todos[todoIndex].isChecked;
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
-
-
 }
 
-
-// Saving to local storage:
-function savelocal(todo){
-    //Check: if item/s are there;
+function savelocal(todo) {
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
@@ -112,15 +102,11 @@ function savelocal(todo){
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-
-
 function getTodos() {
-    //Check: if item/s are there;
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
@@ -131,8 +117,7 @@ function getTodos() {
 
         // Create LI
         const newToDo = document.createElement('li');
-        
-        newToDo.innerText = todo;
+        newToDo.innerText = todo.todo;
         newToDo.classList.add('todo-item');
         toDoDiv.appendChild(newToDo);
 
@@ -149,24 +134,24 @@ function getTodos() {
 
         // Append to list;
         toDoList.appendChild(toDoDiv);
+
+        // Set checked status
+        if (todo.isChecked) {
+            toDoDiv.classList.add('completed');
+        }
     });
 }
 
-
-function removeLocalTodos(todo){
-    //Check: if item/s are there;
+function removeLocalTodos(todo) {
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
-    const todoIndex =  todos.indexOf(todo.children[0].innerText);
-    // console.log(todoIndex);
+    const todoIndex = todos.findIndex(item => item.todo === todo.firstChild.innerText);
     todos.splice(todoIndex, 1);
-    // console.log(todos);
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
