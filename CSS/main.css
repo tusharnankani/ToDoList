@@ -225,8 +225,9 @@ button.light-button:hover {
 }
 
 button.darker-button {
-    background-color: #002837;
+    background-color: #013141;
     color: white;
+    border-radius: 0 17px 17px 0; /* Rounding only the left corners */
 }
 
 button.darker-button:hover {
@@ -357,9 +358,7 @@ form button {
             animated-cursor 750ms steps(16,end) infinite;
         max-width: 255px;
     }
-}
 
-@media only screen and (max-width: 400px) {
     form {
         align-items: center;
         flex-direction: column;
@@ -377,4 +376,26 @@ form button {
     form > button.light-button {
         box-shadow: 0 0 5px lightgray;
     }
+}
+
+/* Add these CSS rules to your style.css file */
+
+/* Dark theme specific styles for date and time input field */
+#deadline {
+    background-color: #01394c;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 0; /* No rounded corners */
+}
+
+#deadline::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+#deadline:hover {
+    background-color: #013141;
 }
