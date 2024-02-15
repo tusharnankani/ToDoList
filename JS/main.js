@@ -25,8 +25,12 @@ savedTheme === null ?
 
 // Functions;
 function addToDo(event) {
-    // Prevents form from submitting / Prevents form from relaoding;
+    // Prevents form from submitting / Prevents form from reloading;
     event.preventDefault();
+
+    // Get deadline input
+    const deadlineInput = document.querySelector('#deadline');
+    const deadline = deadlineInput.value;
 
     // toDo DIV;
     const toDoDiv = document.createElement("div");
@@ -35,16 +39,19 @@ function addToDo(event) {
     // Create LI
     const newToDo = document.createElement('li');
     if (toDoInput.value === '') {
-            alert("You must write something!");
-        } 
-    else {
-        // newToDo.innerText = "hey";
+        alert("You must write something!");
+    } else {
         newToDo.innerText = toDoInput.value;
         newToDo.classList.add('todo-item');
         toDoDiv.appendChild(newToDo);
 
-        // Adding to local storage;
-        savelocal(toDoInput.value);
+        // Adding deadline to the task
+        const deadlinePara = document.createElement('p');
+        deadlinePara.innerText = `Deadline: ${deadline}`;
+        toDoDiv.appendChild(deadlinePara);
+
+        // Adding to local storage with checked status as false
+        savelocal(toDoInput.value, deadline, false);
 
         // check btn;
         const checked = document.createElement('button');
@@ -60,113 +67,118 @@ function addToDo(event) {
         // Append to list;
         toDoList.appendChild(toDoDiv);
 
-        // CLearing the input;
+        // Clearing the input;
         toDoInput.value = '';
+        deadlineInput.value = ''; // Clear deadline input after task is added
     }
+}
 
-}   
 
 
-function deletecheck(event){
 
-    // console.log(event.target);
+function deletecheck(event) {
     const item = event.target;
 
     // delete
-    if(item.classList[0] === 'delete-btn')
-    {
-        // item.parentElement.remove();
-        // animation
+    if (item.classList.contains('delete-btn')) {
+        // Animation
         item.parentElement.classList.add("fall");
 
-        //removing local todos;
+        // Removing local todos;
         removeLocalTodos(item.parentElement);
 
-        item.parentElement.addEventListener('transitionend', function(){
+        item.parentElement.addEventListener('transitionend', function() {
             item.parentElement.remove();
         })
     }
 
     // check
-    if(item.classList[0] === 'check-btn')
-    {
-        item.parentElement.classList.toggle("completed");
+    if (item.classList.contains('check-btn')) {
+        const todoDiv = item.parentElement;
+        todoDiv.classList.toggle("completed");
+        const todos = JSON.parse(localStorage.getItem('todos'));
+        const todoIndex = todos.findIndex(todo => todo.todo === todoDiv.firstChild.innerText);
+        todos[todoIndex].isChecked = !todos[todoIndex].isChecked;
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
-
-
 }
 
-
-// Saving to local storage:
-function savelocal(todo){
-    //Check: if item/s are there;
+function savelocal(todo, deadline, isChecked) {
+    // Check if items are present in local storage
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
-    todos.push(todo);
+    // Store task, deadline, and checked status as an object
+    todos.push({ todo: todo, deadline: deadline, isChecked: isChecked });
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 
 
 function getTodos() {
-    //Check: if item/s are there;
+    // Check if items are present in local storage
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
-    todos.forEach(function(todo) {
-        // toDo DIV;
+    todos.forEach(function (todoItem) {
+        // Create todo div
         const toDoDiv = document.createElement("div");
         toDoDiv.classList.add("todo", `${savedTheme}-todo`);
 
-        // Create LI
+        // Create li element for task text
         const newToDo = document.createElement('li');
-        
-        newToDo.innerText = todo;
+        newToDo.innerText = todoItem.todo;
         newToDo.classList.add('todo-item');
         toDoDiv.appendChild(newToDo);
 
-        // check btn;
+        // Create paragraph for displaying the deadline
+        const deadlinePara = document.createElement('p');
+        deadlinePara.innerText = `Deadline: ${todoItem.deadline}`;
+        toDoDiv.appendChild(deadlinePara);
+
+        // Create check button
         const checked = document.createElement('button');
         checked.innerHTML = '<i class="fas fa-check"></i>';
         checked.classList.add("check-btn", `${savedTheme}-button`);
         toDoDiv.appendChild(checked);
-        // delete btn;
+
+        // Create delete button
         const deleted = document.createElement('button');
         deleted.innerHTML = '<i class="fas fa-trash"></i>';
         deleted.classList.add("delete-btn", `${savedTheme}-button`);
         toDoDiv.appendChild(deleted);
 
-        // Append to list;
+        // Append todo div to todo list
         toDoList.appendChild(toDoDiv);
+
+        // Set checked status based on stored data
+        if (todoItem.isChecked) {
+            toDoDiv.classList.add("completed");
+        }
     });
 }
 
 
-function removeLocalTodos(todo){
-    //Check: if item/s are there;
+
+
+function removeLocalTodos(todo) {
     let todos;
-    if(localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
-    const todoIndex =  todos.indexOf(todo.children[0].innerText);
-    // console.log(todoIndex);
+    const todoIndex = todos.findIndex(item => item.todo === todo.firstChild.innerText);
     todos.splice(todoIndex, 1);
-    // console.log(todos);
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
