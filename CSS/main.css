@@ -249,11 +249,36 @@ form button {
 }
 
 .todo-list {
-    min-width: 25%;
-
+    min-width: 50%;
+    height: 500px;
+    overflow: auto;
     /* To remove the bullets of unordered list */
     list-style: none;
 }
+
+
+/* Scroll Bar Designing */ 
+
+
+.todo-list::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar thumb color */
+
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Scrollbar thumb color on hover */
+
+}
+
 
 .todo {
     margin: 1rem;
