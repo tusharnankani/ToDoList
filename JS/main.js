@@ -11,7 +11,7 @@ const darkerTheme = document.querySelector('.darker-theme');
 // Event Listeners
 
 toDoBtn.addEventListener('click', addToDo);
-toDoList.addEventListener('click', deletecheck);
+toDoList.addEventListener('click', controltodoevents);
 document.addEventListener("DOMContentLoaded", getTodos);
 standardTheme.addEventListener('click', () => changeTheme('standard'));
 lightTheme.addEventListener('click', () => changeTheme('light'));
@@ -67,33 +67,32 @@ function addToDo(event) {
 }   
 
 
-function deletecheck(event){
+function controltodoevents(event){
 
     // console.log(event.target);
     const item = event.target;
 
-    // delete
-    if(item.classList[0] === 'delete-btn')
-    {
-        // item.parentElement.remove();
-        // animation
-        item.parentElement.classList.add("fall");
+    switch(item.classList[0]){
+        case 'delete-btn':{
+             // item.parentElement.remove();
+            // animation
+            item.parentElement.classList.add("fall");
 
-        //removing local todos;
-        removeLocalTodos(item.parentElement);
+            //removing local todos;
+            removeLocalTodos(item.parentElement);
 
-        item.parentElement.addEventListener('transitionend', function(){
-            item.parentElement.remove();
-        })
-    }
-
-    // check
-    if(item.classList[0] === 'check-btn')
-    {
-        item.parentElement.classList.toggle("completed");
-    }
-
-
+            item.parentElement.addEventListener('transitionend', function(){
+                item.parentElement.remove();
+            })
+            break;
+        }
+        case 'check-btn':{
+            item.parentElement.classList.toggle("completed");
+            break;
+        }
+        default:
+            break;
+    } 
 }
 
 
