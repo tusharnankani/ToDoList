@@ -7,6 +7,7 @@ const standardTheme = document.querySelector('.standard-theme');
 const lightTheme = document.querySelector('.light-theme');
 const darkerTheme = document.querySelector('.darker-theme');
 
+console.log("hello")
 
 // Event Listeners
 
