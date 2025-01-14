@@ -34,6 +34,11 @@ body {
     transition: 0.3s linear;
 }
 
+.space {
+    color: white;
+    transition: 0.3s linear;
+}
+
 #header, #form, #datetime {
     margin: 0 1rem;
     min-height: 10vh;
@@ -87,6 +92,13 @@ body {
 
 .darker-theme {
     background-image: linear-gradient(100deg, #001214, #001f29);
+}
+
+.space-theme {
+    background-image: url("../assets/space-bg.jpg");
+}
+.space2-theme {
+    background-image: url("../assets/space2.jpg");
 }
 
 /* Animation */
@@ -378,3 +390,4 @@ form button {
         box-shadow: 0 0 5px lightgray;
     }
 }
+
