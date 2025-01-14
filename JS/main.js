@@ -6,6 +6,8 @@ const toDoList = document.querySelector('.todo-list');
 const standardTheme = document.querySelector('.standard-theme');
 const lightTheme = document.querySelector('.light-theme');
 const darkerTheme = document.querySelector('.darker-theme');
+const spaceTheme = document.querySelector('.space-theme');
+const space2Theme = document.querySelector('.space2-theme');
 
 
 // Event Listeners
@@ -16,6 +18,8 @@ document.addEventListener("DOMContentLoaded", getTodos);
 standardTheme.addEventListener('click', () => changeTheme('standard'));
 lightTheme.addEventListener('click', () => changeTheme('light'));
 darkerTheme.addEventListener('click', () => changeTheme('darker'));
+spaceTheme.addEventListener('click', () => changeTheme('space'));
+space2Theme.addEventListener('click', () => changeTheme('space2'));
 
 // Check if one theme has been set previously and apply it (or std theme if not found):
 let savedTheme = localStorage.getItem('savedTheme');
@@ -200,4 +204,23 @@ function changeTheme(color) {
             }
         });
     });
+
+    // Jika tema adalah space, atur latar belakang body dengan gambar space-bg.jpg
+    if (color === 'space') {
+        document.getElementById('title').classList.add('space');
+        document.getElementById('datetime').classList.add('space');
+        document.body.style.backgroundImage = "url(assets/space-bg.jpg)";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+    } else if (color === 'space2') {
+        document.getElementById('title').classList.add('space');
+        document.getElementById('datetime').classList.add('space');
+        document.body.style.backgroundImage = "url(assets/space2.jpg)";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+    } else {
+        // Reset background image jika tema bukan space
+        document.getElementById('title').classList.remove('space')
+        document.body.style.backgroundImage = "";
+    }
 }
