@@ -1,5 +1,3 @@
-// Selectors
-
 const toDoInput = document.querySelector('.todo-input');
 const toDoBtn = document.querySelector('.todo-btn');
 const toDoList = document.querySelector('.todo-list');
@@ -7,9 +5,7 @@ const standardTheme = document.querySelector('.standard-theme');
 const lightTheme = document.querySelector('.light-theme');
 const darkerTheme = document.querySelector('.darker-theme');
 
-
 // Event Listeners
-
 toDoBtn.addEventListener('click', addToDo);
 toDoList.addEventListener('click', deletecheck);
 document.addEventListener("DOMContentLoaded", getTodos);
@@ -17,54 +13,39 @@ standardTheme.addEventListener('click', () => changeTheme('standard'));
 lightTheme.addEventListener('click', () => changeTheme('light'));
 darkerTheme.addEventListener('click', () => changeTheme('darker'));
 
-// Check if one theme has been set previously and apply it (or std theme if not found):
 let savedTheme = localStorage.getItem('savedTheme');
-savedTheme === null ?
-    changeTheme('standard')
-    : changeTheme(localStorage.getItem('savedTheme'));
+savedTheme === null ? changeTheme('standard') : changeTheme(localStorage.getItem('savedTheme'));
 
-// Functions;
 function addToDo(event) {
-    // Prevents form from submitting / Prevents form from relaoding;
     event.preventDefault();
 
-    // toDo DIV;
+    const currentDate = new Date().toLocaleDateString('en-CA');
+
     const toDoDiv = document.createElement("div");
     toDoDiv.classList.add('todo', `${savedTheme}-todo`);
 
-    // Create LI
     const newToDo = document.createElement('li');
-    if (toDoInput.value === '') {
-            alert("You must write something!");
-        } 
-    else {
-        // newToDo.innerText = "hey";
-        newToDo.innerText = toDoInput.value;
-        newToDo.classList.add('todo-item');
-        toDoDiv.appendChild(newToDo);
+    newToDo.innerText = `${toDoInput.value} - ${currentDate}`;
+    newToDo.classList.add('todo-item');
+    toDoDiv.appendChild(newToDo);
 
-        // Adding to local storage;
-        savelocal(toDoInput.value);
+    savelocal(toDoInput.value, currentDate);
 
-        // check btn;
-        const checked = document.createElement('button');
-        checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add('check-btn', `${savedTheme}-button`);
-        toDoDiv.appendChild(checked);
-        // delete btn;
-        const deleted = document.createElement('button');
-        deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add('delete-btn', `${savedTheme}-button`);
-        toDoDiv.appendChild(deleted);
+    const checked = document.createElement('button');
+    checked.innerHTML = '<i class="fas fa-check"></i>';
+    checked.classList.add('check-btn', `${savedTheme}-button`);
+    toDoDiv.appendChild(checked);
 
-        // Append to list;
-        toDoList.appendChild(toDoDiv);
+    const deleted = document.createElement('button');
+    deleted.innerHTML = '<i class="fas fa-trash"></i>';
+    deleted.classList.add('delete-btn', `${savedTheme}-button`);
+    toDoDiv.appendChild(deleted);
 
-        // CLearing the input;
-        toDoInput.value = '';
-    }
+    toDoList.appendChild(toDoDiv);
 
-}   
+    toDoInput.value = '';
+}
+
 
 
 function deletecheck(event){
@@ -96,23 +77,66 @@ function deletecheck(event){
 
 }
 
-
-// Saving to local storage:
-function savelocal(todo){
-    //Check: if item/s are there;
+function savelocal(todo, date) {
     let todos;
     if(localStorage.getItem('todos') === null) {
         todos = [];
-    }
-    else {
+    } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
-
-    todos.push(todo);
+    todos.push({ task: todo, date: date });
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function isTaskAlreadyExists(task) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    return todos.some(todo => todo.task === task);
+}
 
+function displayErrorMessage(message) {
+    alert(message);
+}
+
+function addToDo(event) {
+    event.preventDefault();
+
+    const task = toDoInput.value.trim();
+    if (task === '') {
+        alert("You must write something!");
+        return;
+    }
+
+    if (isTaskAlreadyExists(task)) {
+        displayErrorMessage('Task already exists!'); // Display an error message if the task already exists
+        return;
+    }
+
+    const currentDate = new Date().toLocaleDateString('en-CA');
+
+    const toDoDiv = document.createElement("div");
+    toDoDiv.classList.add('todo', `${savedTheme}-todo`);
+
+    const newToDo = document.createElement('li');
+    newToDo.innerText = `${task} - ${currentDate}`;
+    newToDo.classList.add('todo-item');
+    toDoDiv.appendChild(newToDo);
+
+    savelocal(task, currentDate);
+
+    const checked = document.createElement('button');
+    checked.innerHTML = '<i class="fas fa-check"></i>';
+    checked.classList.add('check-btn', `${savedTheme}-button`);
+    toDoDiv.appendChild(checked);
+
+    const deleted = document.createElement('button');
+    deleted.innerHTML = '<i class="fas fa-trash"></i>';
+    deleted.classList.add('delete-btn', `${savedTheme}-button`);
+    toDoDiv.appendChild(deleted);
+
+    toDoList.appendChild(toDoDiv);
+
+    toDoInput.value = '';
+}
 
 function getTodos() {
     //Check: if item/s are there;
