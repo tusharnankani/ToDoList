@@ -60,6 +60,8 @@ body {
 
 .theme-selector {
     border: 1px solid #d1dae3;
+    cursor: pointer;
+    padding: 0;
     border-radius: 100%;
     height: 35px;
     margin: 0 8px;
@@ -129,68 +131,142 @@ body {
   }
 
 form {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     font-size: 1.7rem;
-    justify-content: center;
     margin: 15px 0;
     padding: 0.8rem;
     width: 100%;
 }
 
-form input {
-    padding: 10px;
-    font-size: 17px;
-    border: none;
-    outline: none;
-    /* border-radius: 15; */
-    border-top-left-radius: 17px;
-    border-bottom-left-radius: 17px;
-    max-width: 500px;
-    transition: background-color 200ms ease-in-out;
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 800px;
     width: 100%;
 }
 
-/* Input themes */
-form input.standard-input {
+.control, .todo-input {
+    border: none;
+    border-radius: 17px;
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+    padding: 10px;
+    transition: background-color 200ms ease-in-out;
+}
+
+.todo-input {
+    flex: 1 1 260px;
+    max-width: 500px;
+    min-width: 0;
+}
+
+/* Input themes (inputs and selects) */
+.standard-input {
     background-color: #181a1a;
     color: rgb(247, 226, 223);
+    color-scheme: dark;
 }
 
-
-form input.light-input {
+.light-input {
     background-color: #AEB1B4;
     color: #1a150e;
+    color-scheme: light;
 }
 
-form input.light-input::placeholder {
+.light-input::placeholder {
     color: #1a150e;
     opacity: 0.7;
 }
 
-form input.darker-input {
+.darker-input {
     background-color: #01394c;
     color: white;
+    color-scheme: dark;
 }
 
-form input.darker-input::placeholder {
+.darker-input::placeholder {
     color: white;
     opacity: 0.7;
 }
 
-form input:hover {
+.control:hover, .todo-input:hover {
     cursor: text;
 }
 
-form input.standard-input:hover {
+select.control:hover {
+    cursor: pointer;
+}
+
+.standard-input:hover {
     background-color: rgb(0, 0, 0);
 }
 
-form input.light-input:hover {
+.light-input:hover {
     background-color: #919699;
 }
 
-form input.darker-input:hover {
+.darker-input:hover {
     background-color: #013141;
+}
+
+button:focus-visible, .control:focus-visible, .todo-input:focus-visible {
+    outline: 3px solid #1e90ff;
+    outline-offset: 2px;
+}
+
+/* Inline messages */
+.field-error, .status-message.error {
+    color: #ff9e9e;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.light .field-error, .light .status-message.error {
+    color: #7f0015;
+}
+
+.status-message {
+    font-size: 18px;
+    margin: 0.5rem 1rem;
+    text-align: center;
+}
+
+/* Filters, search and clear completed */
+#toolbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    gap: 6px;
+}
+
+.filter-btn, .clear-btn {
+    border-radius: 17px;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 8px 14px;
+}
+
+.filter-btn[aria-pressed="true"] {
+    box-shadow: 0 0 0 2px currentColor;
+    font-weight: bold;
+}
+
+#search-input {
+    font-size: 16px;
+    min-width: 180px;
 }
 
 button {
@@ -232,12 +308,12 @@ button.darker-button:hover {
     background-color: #001f29;
 }
 
-form button {
-    padding: 10px;
+.todo-btn {
+    border-radius: 17px;
+    font-family: inherit;
     font-size: 17px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     min-width: 100px;
+    padding: 10px;
 }
 
 #myUnOrdList {
@@ -245,10 +321,12 @@ form button {
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    width: 100%;
 }
 
 .todo-list {
-    min-width: 25%;
+    max-width: 700px;
+    width: 100%;
     overflow: hidden;
     /* To remove the bullets of unordered list */
     list-style: none;
@@ -280,19 +358,56 @@ form button {
     background-color: #01394c;
 }
 
-.todo li{
-    padding: 7px;
-    /* word-wrap: break-word; */
-    /* flex-wrap: wrap; */
-    font-size: 20px;
-    flex: 1; /* To push the trash and the check button to the right */
-    border-radius: 30px;
+.todo-main {
+    flex: 1; /* To push the action buttons to the right */
+    min-width: 0;
+    padding: 7px 0.5rem;
+}
 
+.todo-text {
+    display: block;
+    font-size: 20px;
     /* wraps the links */
     overflow-wrap: anywhere;
 }
 
-.check-btn, .delete-btn {
+.todo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 13px;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.priority {
+    border-radius: 10px;
+    color: #fff;
+    padding: 1px 8px;
+    text-transform: capitalize;
+}
+
+.priority-low {
+    background-color: #2e7d32;
+}
+
+.priority-medium {
+    background-color: #9a5b00;
+}
+
+.priority-high {
+    background-color: #c62828;
+}
+
+.overdue {
+    font-weight: bold;
+}
+
+.todo-actions {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.check-btn, .edit-btn, .delete-btn {
     font-size: 19px;
     cursor: pointer;
     width: 2em;
@@ -301,11 +416,23 @@ form button {
     margin: 0 5px;
 }
 
-.todo-item {
-    padding: 0rem 0.5rem;
+.edit-input {
+    width: 100%;
 }
 
-.fa-trash, .fa-check { 
+.edit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.todo .control {
+    font-size: 16px;
+    padding: 6px 10px;
+}
+
+.todo-actions i {
     pointer-events: none;
 }
 
@@ -359,21 +486,24 @@ form button {
 }
 
 @media only screen and (max-width: 400px) {
-    form {
-        align-items: center;
+    .form-row {
+        align-items: stretch;
         flex-direction: column;
     }
 
-    form input {
-        border-radius: 17px;
+    .todo-input {
+        flex: none;
+        max-width: none;
+        width: 100%;
     }
 
-    form button {
-        border-radius: 15px;
-        margin-top: 15px;
+    .todo-btn {
+        align-self: center;
+        margin-top: 7px;
         width: 50%;
     }
-    form > button.light-button {
+
+    .todo-btn.light-button {
         box-shadow: 0 0 5px lightgray;
     }
 }

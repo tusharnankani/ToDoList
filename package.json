@@ -1,0 +1,32 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "To-do list web app with a Node.js/Express REST API and SQLite storage.",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "db:init": "node db/init.js",
+    "test": "jest",
+    "build:win": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1",
+    "build:sh": "sh scripts/build.sh"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
+  }
+}

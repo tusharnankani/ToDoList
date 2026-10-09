@@ -1,0 +1,13 @@
+.git
+.github
+.idea
+node_modules
+dist
+coverage
+tests
+scripts
+data
+db/*.sqlite
+db/*.sqlite-shm
+db/*.sqlite-wal
+assets/demo*.png
