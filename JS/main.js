@@ -44,7 +44,10 @@ function addToDo(event) {
         toDoDiv.appendChild(newToDo);
 
         // Adding to local storage;
-        savelocal(toDoInput.value);
+        savelocal({
+            text: toDoInput.value,
+            completed: false
+        });
 
         // check btn;
         const checked = document.createElement('button');
@@ -88,27 +91,33 @@ function deletecheck(event){
     }
 
     // check
-    if(item.classList[0] === 'check-btn')
-    {
-        item.parentElement.classList.toggle("completed");
+    if (item.classList.contains('check-btn')) {
+      const todoDiv = item.closest('.todo');
+      const todoText = todoDiv.querySelector('.todo-item').innerText;
+      const completed = todoDiv.classList.toggle('completed');
+
+      updateLocalTodo(todoText, completed);
+   }
+}
+
+function updateLocalTodo(todoText, completed) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+    const todo = todos.find(todo => todo.text === todoText);
+
+    if (todo) {
+        todo.completed = completed;
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
-
-
 }
 
 
 // Saving to local storage:
-function savelocal(todo){
-    //Check: if item/s are there;
-    let todos;
-    if(localStorage.getItem('todos') === null) {
-        todos = [];
-    }
-    else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
+function savelocal(todo) {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
     todos.push(todo);
+
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
@@ -129,10 +138,14 @@ function getTodos() {
         const toDoDiv = document.createElement("div");
         toDoDiv.classList.add("todo", `${savedTheme}-todo`);
 
+        if (todo.completed) {
+            toDoDiv.classList.add('completed');
+        }
+
         // Create LI
         const newToDo = document.createElement('li');
         
-        newToDo.innerText = todo;
+        newToDo.innerText = todo.text;
         newToDo.classList.add('todo-item');
         toDoDiv.appendChild(newToDo);
 
@@ -153,21 +166,16 @@ function getTodos() {
 }
 
 
-function removeLocalTodos(todo){
-    //Check: if item/s are there;
-    let todos;
-    if(localStorage.getItem('todos') === null) {
-        todos = [];
-    }
-    else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
+function removeLocalTodos(todo) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    const todoText = todo.querySelector('.todo-item').innerText;
 
-    const todoIndex =  todos.indexOf(todo.children[0].innerText);
-    // console.log(todoIndex);
-    todos.splice(todoIndex, 1);
-    // console.log(todos);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    const todoIndex = todos.findIndex(item => item.text === todoText);
+
+    if (todoIndex !== -1) {
+        todos.splice(todoIndex, 1);
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
 }
 
 // Change theme function:
